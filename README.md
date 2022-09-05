@@ -1,2 +1,2 @@
 # Ensalamento
-Repositório para armazenamento do projeto de Engenharia de Software
+Repositório para armazenamento do projeto de Engenharia de Software.
