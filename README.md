@@ -1,7 +1,7 @@
 # Ensalamento
 Repositório para armazenamento do projeto de Engenharia de Software
 
-Diagramas iniciais que organizam a forma que será desenvolvido esse projeto:
+## Diagramas iniciais que organizam a forma que será desenvolvido esse projeto:
 
 ### Tabela de Tarefas
 
