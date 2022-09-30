@@ -62,7 +62,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 .footer {
   position: absolute;
@@ -133,7 +133,7 @@ body {
     }
 
 .mg-5 {
-    margin: 20px 0px 20px 0px;
+    margin: 15px 0px 15px 0px;
 }
 
 .text-login {
@@ -149,3 +149,43 @@ body {
     margin: 10px 10px 10px 10px;
 
 }
+
+.link-type-user {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.content-inputs-login {
+    margin-left:30px;
+    margin-right: 30px;
+}
+
+.inputs-login {
+    /*border: 1px solid white;*/
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ced4da;
+    width: 800px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #fff;
+    background-clip: padding-box;
+    line-height: 1.5;
+    color: #495057;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding-left: 10px;
+    font-family: 'Faustina';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+    .inputs-login:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #00753B;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,150,0,0.6);
+    }

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Tela Login";
+    ViewData["Title"] = "Tela tipo de Usuario";
 }
 
 
@@ -14,19 +14,19 @@
     </div>
 
     <div class="row justify-content-center mg-5">
-        <button class="btn button-users" type="button">Secretaria Geral</button>
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Secretaria Geral</a>
+    </div>
+
+    <div class="row justify-content-center  mg-5">
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Coordenador de curso</a>
     </div>
 
     <div class="row justify-content-center mg-5">
-        <button class="btn button-users" type="button" >Coordenador de curso</button>
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Professor</a>
     </div>
 
     <div class="row justify-content-center mg-5">
-        <button class="btn button-users" type="button">Professor</button>
-    </div>
-
-    <div class="row justify-content-center mg-5">
-        <button class="btn button-users" type="button">Estudante</button>
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Estudante</a>
     </div>
 
 </form>
