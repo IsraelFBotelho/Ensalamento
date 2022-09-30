@@ -9,9 +9,6 @@ namespace Ensalamento.Data
 {
     public partial class ESContext : DbContext
     {
-        public ESContext()
-        {
-        }
 
         public ESContext(DbContextOptions<ESContext> options)
             : base(options)

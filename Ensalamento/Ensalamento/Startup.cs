@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ensalamento.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Ensalamento
@@ -26,6 +28,8 @@ namespace Ensalamento
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var s = Configuration.GetConnectionString("Database");
+            services.AddDbContext<ESContext>(c => c.UseMySql(s,ServerVersion.AutoDetect(s)));
             services.AddControllersWithViews();
 
             services.AddCors();

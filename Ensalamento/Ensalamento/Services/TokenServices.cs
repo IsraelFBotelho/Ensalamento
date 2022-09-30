@@ -9,7 +9,7 @@ namespace Ensalamento.Services
 {
     public static class TokenServices
     {
-        public static string GenerateToken(Auth user)
+        public static string GenerateToken(User user, Role role)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -17,8 +17,8 @@ namespace Ensalamento.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.User.FirstName.ToString()),
-                    new Claim(ClaimTypes.Role, user.User.Role.Name.ToString())
+                    new Claim(ClaimTypes.Name, user.FirstName.ToString()),
+                    new Claim(ClaimTypes.Role, role.Name.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
