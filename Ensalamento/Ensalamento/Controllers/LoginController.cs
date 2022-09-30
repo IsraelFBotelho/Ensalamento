@@ -27,7 +27,7 @@ namespace Ensalamento.Controllers
             var token = TokenServices.GenerateToken(user);
 
             // Retorna os dados
-            return View(new {token = token});
+            return Ok(new {token = token});
         }
     }
 }
