@@ -51,6 +51,8 @@ button.accept-policy {
   line-height: inherit;
 }
 
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -68,4 +70,82 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+
+
+
+
+
+
+/*Software Engineering Styles --> by Jennifer*/
+
+.color-uel {
+    background-color: #00753B;
+}
+
+.button-users-light {
+    color: #00753B;
+    border-color: #00753B;
+    width: 300px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 38px;
+    align-items: center;
+    text-align: center;
+/*    letter-spacing: 0.02em;
+*/    text-transform: uppercase;
+}
+
+    .button-users-light:hover {
+        color: #fff;
+        background-color: #00753B;
+        border-color: #00753B;
+    }
+
+.button-users {
+    color: #fff;
+    background-color: #00753B;
+    width: 800px;
+    height: 100px;
+    border-radius: 20px;
+    border-color: darkgreen;
+    /*font-family: Arial;*/
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+ text-transform: uppercase;
+}
+
+    .button-users:hover {
+        color: #00753B;
+        background-color: #fff;
+        border-color: #00753B;
+    }
+
+.mg-5 {
+    margin: 20px 0px 20px 0px;
+}
+
+.text-login {
+    font-family: 'Faustina';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    color: #444444;
+}
+
+.container-fluid-eng-soft {
+    
+    margin: 10px 10px 10px 10px;
+
 }
