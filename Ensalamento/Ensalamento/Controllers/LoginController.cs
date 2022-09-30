@@ -1,48 +1,71 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using Ensalamento.Models;
 using Ensalamento.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Ensalamento.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace Ensalamento.Controllers
 {
-    [ApiController]
-    [Route("api/")]
     public class LoginController : Controller
     {
 
         private ESContext _context;
 
-        public LoginController(ESContext context)
+        private readonly ILogger<HomeController> _logger;
+
+        public LoginController(ILogger<HomeController> logger, ESContext context)
         {
+            _logger = logger;
             _context = context;
         }
 
-        [HttpPost]
-        [Route("login")]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] Auth model)
+        [HttpPost, AllowAnonymous]
+        public async Task<IActionResult> Login(Auth auth)
         {
-            // Recupera o usuário
+            var user = _context.Auth.FirstOrDefault(c => c.Login == auth.Login);
 
-            var auth = _context.Auth.FirstOrDefault(c => c.Login == model.Login);
+            if (user == null || auth.Password != user.Password)
+            {
+                return RedirectToAction("Index", new { erroLogin = true });
+            }
 
-            // Verifica se o usuário existe
-            // if (user == null || HashServices.GetHash(model.Password) != user.Password )
-            if (auth == null || model.Password != auth.Password )
-                return NotFound(new { message = "Usuário ou senha inválidos" });
+            var userdb = _context.User.FirstOrDefault(c => c.Id == user.UserId);
+            var role = _context.Role.FirstOrDefault(c => c.Id == userdb.RoleId);
+            
+            await new LoginServices().Login(HttpContext, userdb, role);
 
-            var user = _context.User.FirstOrDefault(c => c.Id == auth.UserId);
+            return RedirectToAction("Profile");
+        }
 
-            var role = _context.Role.FirstOrDefault(c => c.Id == user.RoleId);
+        [Authorize]
+        public async Task<IActionResult> Sair()
+        {
+            await new LoginServices().Logoff(HttpContext);
+            return RedirectToAction("Index");
+        }
 
-            // Gera o Token
-            var token = TokenServices.GenerateToken(user, role);
+        [AllowAnonymous]
+        public IActionResult Index(bool errologin)
+        {
 
-            // Retorna os dados
-            return Ok(new {token = token});
+            if (errologin)
+            {
+                ViewBag.Erro = "Login e/ou senha incorretos";
+            }
+            
+            return View();
+        }
+
+        public IActionResult Profile()
+        {
+            ViewBag.Permissoes = HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.Role).Select(x => x.Value);
+            return View();
         }
     }
 }

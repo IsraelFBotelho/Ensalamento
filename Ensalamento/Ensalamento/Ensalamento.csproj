@@ -18,7 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Login" />
     <Folder Include="Pages\Login\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Login\Index.cshtml" />
   </ItemGroup>
 
 </Project>
