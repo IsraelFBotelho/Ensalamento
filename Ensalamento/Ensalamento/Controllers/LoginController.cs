@@ -18,7 +18,22 @@ namespace Ensalamento.Controllers
             return View();
         }
 
-        public IActionResult UserPanel()
+        public IActionResult UserPanelCoordinator()
+        {
+            return View();
+        }
+
+        public IActionResult UserPanelTeacher()
+        {
+            return View();
+        }
+
+        public IActionResult UserPanelStudent()
+        {
+            return View();
+        }
+
+        public IActionResult UserPanelSecretary()
         {
             return View();
         }

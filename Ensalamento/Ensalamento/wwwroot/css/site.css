@@ -269,14 +269,13 @@ body {
 .text-categories {
     margin: 11px 0px 11px 32px;
     left: 72px;
-    right: 32px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     font-weight: bold;
-/*    line-height: 21px;
-*/    letter-spacing: 0.1px;
+    line-height: 21px;
+    letter-spacing: 0.1px;
     color: #212121;
 }
 
