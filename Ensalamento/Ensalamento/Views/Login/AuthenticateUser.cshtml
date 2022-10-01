@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Tela de Login do Usuario";
+}
+
+
+
+<form class="justify-content-center">
+    <div class="container-fluid-eng-soft row m-3 justify-content-center">
+        <img src="~/Images/logouelbranco.png" width="695" height="198" />
+    </div>
+
+    <div class="row justify-content-center mg-5">
+        <label class="text-login justify-content-center">Sistema de Ensalamento</label>
+    </div>
+
+@*    <label for="floatingMatriculation">Chapa/Matrícula</label>
+*@    <div class="row justify-content-center mg-5 form-floating mb-3">
+        <input type="text" class="inputs-login" id="floatingMatriculation" placeholder="Chapa / Matrícula">
+    </div>
+
+@*    <label for="floatingPassword">Senha</label>
+*@    <div class="row justify-content-center mg-5 form-floating">
+        <input type="password" class="inputs-login" id="floatingPassword" placeholder="Senha">
+
+    </div>
+
+
+    <div class="row justify-content-center mg-5">
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Entrar</a>
+    </div>
+
+</form>

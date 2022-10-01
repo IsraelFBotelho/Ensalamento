@@ -1,8 +1,32 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Tela tipo de Usuario";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+   
+<form class="justify-content-center">
+    <div class="container-fluid-eng-soft row m-3 justify-content-center">
+        <img src="~/Images/logouelbranco.png" width="695" height="198" />
+    </div>
+
+    <div class="row justify-content-center mg-5">
+        <label class="text-login justify-content-center">Sistema de Ensalamento</label>
+    </div>
+
+    <div class="row justify-content-center mg-5">
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Secretaria Geral</a>
+    </div>
+
+    <div class="row justify-content-center  mg-5">
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Coordenador de curso</a>
+    </div>
+
+    <div class="row justify-content-center mg-5">
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Professor</a>
+    </div>
+
+    <div class="row justify-content-center mg-5">
+        <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="AuthenticateUser">Estudante</a>
+    </div>
+
+</form>
