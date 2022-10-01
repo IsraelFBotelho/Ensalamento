@@ -67,5 +67,25 @@ namespace Ensalamento.Controllers
             ViewBag.Permissoes = HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.Role).Select(x => x.Value);
             return View();
         }
+
+        public IActionResult UserPanelCoordinator()
+        {
+            return View();
+        }
+
+        public IActionResult UserPanelTeacher()
+        {
+            return View();
+        }
+
+        public IActionResult UserPanelStudent()
+        {
+            return View();
+        }
+
+        public IActionResult UserPanelSecretary()
+        {
+            return View();
+        }
     }
 }
