@@ -189,3 +189,101 @@ body {
         outline: 0;
         box-shadow: 0 0 0 0.2rem rgba(0,150,0,0.6);
     }
+
+
+.left-bar {
+    position: absolute;
+    width: 256px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #ced4da;
+    background-color: white;
+}
+
+.username {
+    position: absolute;
+    height: 26px;
+    left: 16px;
+    right: 56px;
+    top: 104px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.div-user {
+/*    position: absolute;
+*/    width: 255px;
+    height: 144px;
+    left: 0px;
+    top: 0px;
+}
+
+.divider {
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #E5E5E5;
+    margin: 2px 0px 0px 0px;
+}
+
+.text-sist-ens {
+    position: absolute;
+    width: 165.14px;
+    height: 30.12px;
+    right: 0px;
+    top: 20.14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.icon-graduate {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 7px;
+    top: 52px;
+    fill: #00753B;
+}
+
+
+.categories {
+    height: 40px;
+    width: 100%;
+}
+
+.text-categories {
+    margin: 11px 0px 11px 32px;
+    left: 72px;
+    right: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    font-weight: bold;
+/*    line-height: 21px;
+*/    letter-spacing: 0.1px;
+    color: #212121;
+}
+
+.icons-categories {
+    margin: 11px 0px 11px 16px;
+    width: 24px;
+    height: 24px;
+    left: 16px;
+    fill: #00753B;
+}

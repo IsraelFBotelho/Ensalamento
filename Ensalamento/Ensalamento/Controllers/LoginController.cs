@@ -17,6 +17,11 @@ namespace Ensalamento.Controllers
         {
             return View();
         }
+
+        public IActionResult UserPanel()
+        {
+            return View();
+        }
     }
 
 }
