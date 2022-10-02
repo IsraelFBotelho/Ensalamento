@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,7 +38,7 @@ namespace Ensalamento
                 .AddCookie(options =>
                 {
                     options.LoginPath = new PathString("/Home/Index/");
-                    options.AccessDeniedPath = new PathString("Home/Index/");
+                    options.AccessDeniedPath = new PathString("/Home/Index/");
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                     options.SlidingExpiration = true;
                 });
