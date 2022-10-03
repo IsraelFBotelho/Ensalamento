@@ -16,47 +16,19 @@
         <label class="text-login justify-content-center">Sistema de Ensalamento</label>
     </div>
 
-    @*    <label for="floatingMatriculation">Chapa/Matrícula</label>
-*@
+
     <div class="row justify-content-center mg-5 form-floating mb-3">
-        @*<input type="text" class="inputs-login" id="floatingMatriculation" placeholder="Chapa / Matrícula">*@
         @Html.TextBoxFor(x => x.Login, new {@placeholder = "Chapa / Matrícula", @class = "inputs-login"})
     </div>
-
-    @*    <label for="floatingPassword">Senha</label>
-*@
+    
     <div class="row justify-content-center mg-5 form-floating">
-        @*<input type="password" class="inputs-login" id="floatingPassword" placeholder="Senha">*@
-        @Html.TextBoxFor(x => x.Password, new {@placeholder = "Senha", @class = "inputs-login"})
+        @Html.TextBoxFor(x => x.Password, new {@placeholder = "Senha", @class = "inputs-login", type="password"})
 
     </div>
 
     <div class="row justify-content-center mg-5">
         
         <button class="btn button-users link-type-user" type="submit">Entrar</button>
-
-        @*<div class="row justify-content-center mg-5">
-        @{
-            int i = 4;
-
-            if (i == 1)
-            {
-                <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="UserPanelSecretary">Entrar</a>
-            }
-            else if (i == 2)
-            {
-                <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="UserPanelCoordinator">Entrar</a>
-            }
-            else if (i == 3)
-            {
-                <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="UserPanelTeacher">Entrar</a>
-            }
-            else if (i == 4)
-            {
-                <a class="btn button-users link-type-user" role="button" asp-controller="Login" asp-action="UserPanelStudent">Entrar</a>
-            }
-        }*@
-
     </div>
 
     <div class="row justify-content-center mg-5">
