@@ -55,15 +55,15 @@ namespace Ensalamento.Controllers
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Login(Auth auth)
         {
-            var user = _context.Auth.FirstOrDefault(c => c.Login == auth.Login);
+            var user = _context.Auths.FirstOrDefault(c => c.Login == auth.Login);
 
             if (user == null || auth.Password != user.Password)
             {
                 return RedirectToAction("Erro", new { erroLogin = true });
             }
 
-            var userdb = _context.User.FirstOrDefault(c => c.Id == user.UserId);
-            var role = _context.Role.FirstOrDefault(c => c.Id == userdb.RoleId);
+            var userdb = _context.Users.FirstOrDefault(c => c.Registration == user.UserRegistration);
+            var role = _context.Roles.FirstOrDefault(c => c.Id == userdb.RoleId);
             
             await new LoginServices().Login(HttpContext, userdb, role);
 
