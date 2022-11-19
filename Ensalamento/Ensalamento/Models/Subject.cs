@@ -8,14 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ensalamento.Models
 {
-    [Table("center")]
-    public partial class Center
+    [Table("subject")]
+    public partial class Subject
     {
-        public Center()
-        {
-            Departments = new HashSet<Department>();
-        }
-
         [Key]
         [Column("id")]
         public int Id { get; set; }
@@ -23,12 +18,5 @@ namespace Ensalamento.Models
         [Column("name")]
         [StringLength(64)]
         public string Name { get; set; }
-        [Required]
-        [Column("acronym")]
-        [StringLength(16)]
-        public string Acronym { get; set; }
-
-        [InverseProperty(nameof(Department.Center))]
-        public virtual ICollection<Department> Departments { get; set; }
     }
 }

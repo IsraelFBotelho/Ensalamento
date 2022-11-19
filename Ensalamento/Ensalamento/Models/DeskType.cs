@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ensalamento.Models
 {
-    [Table("center")]
-    public partial class Center
+    [Table("desk_type")]
+    public partial class DeskType
     {
-        public Center()
+        public DeskType()
         {
-            Departments = new HashSet<Department>();
+            Classes = new HashSet<Class>();
         }
 
         [Key]
@@ -21,14 +21,10 @@ namespace Ensalamento.Models
         public int Id { get; set; }
         [Required]
         [Column("name")]
-        [StringLength(64)]
+        [StringLength(32)]
         public string Name { get; set; }
-        [Required]
-        [Column("acronym")]
-        [StringLength(16)]
-        public string Acronym { get; set; }
 
-        [InverseProperty(nameof(Department.Center))]
-        public virtual ICollection<Department> Departments { get; set; }
+        [InverseProperty(nameof(Class.DeskType))]
+        public virtual ICollection<Class> Classes { get; set; }
     }
 }
