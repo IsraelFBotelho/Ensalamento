@@ -15,7 +15,7 @@ CREATE TABLE desk_type (
 );
 
 CREATE TABLE subject (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id VARCHAR(16) PRIMARY KEY,
     name VARCHAR(64) NOT NULL
 );
 
@@ -27,8 +27,8 @@ CREATE TABLE auth (
 
 CREATE TABLE center (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(64) NOT NULL,
-    acronym VARCHAR(16) NOT NULL
+    name VARCHAR(64) UNIQUE NOT NULL,
+    acronym VARCHAR(16) UNIQUE NOT NULL
 );
 
 CREATE TABLE department (
@@ -60,11 +60,26 @@ CREATE TABLE user (
     CONSTRAINT fk_user_department_id FOREIGN KEY (department_id) REFERENCES department (id)
 );
 
+-- Informa as matérias às quais o estudante está matriculado.
+-- start_date: o início do semestre.
+-- end_date: o fim do semestre.
 CREATE TABLE subject_history (
     start_date DATETIME NOT NULL,
     end_date DATETIME NOT NULL,
-    user_registration INT NOT NULL,
-    subject_id INT NOT NULL,
-    CONSTRAINT fk_subject_history_user_registration FOREIGN KEY (user_registration) REFERENCES user (registration),
-    CONSTRAINT fk_subject_history_subject_id FOREIGN KEY (subject_id) REFERENCES subject (id)
+    subject_id VARCHAR(16) NOT NULL,
+    student_id INT NOT NULL,
+    teacher_id INT NOT NULL,
+    CONSTRAINT fk_subject_history_subject_id FOREIGN KEY (subject_id) REFERENCES subject (id),
+    CONSTRAINT fk_subject_history_student_id FOREIGN KEY (student_id) REFERENCES user (registration),
+    CONSTRAINT fk_subject_history_teacher_id FOREIGN KEY (teacher_id) REFERENCES user (registration)
+);
+
+CREATE TABLE class_reservation (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    requester_id INT NOT NULL,
+    class_id VARCHAR(16) NOT NULL,
+    start_date DATETIME NOT NULL,
+    end_date DATETIME NOT NULL,
+    CONSTRAINT fk_class_reservation_requester_id FOREIGN KEY (requester_id) REFERENCES user (registration),
+    CONSTRAINT fk_class_reservation_class_id FOREIGN KEY (class_id) REFERENCES class (id)
 );
