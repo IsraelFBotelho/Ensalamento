@@ -1,4 +1,7 @@
 ﻿using Ensalamento.Data;
+using Ensalamento.DTOs;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Ensalamento.Services
 {
@@ -15,6 +18,9 @@ namespace Ensalamento.Services
             _context = context;
         }
 
-
+        private async Task<List<SearchResult>> FindAsync(string name)
+        {
+            
+        }
     }
 }

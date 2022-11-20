@@ -110,28 +110,32 @@ VALUES
     );
 
 INSERT
-    IGNORE INTO class_reservation (requester_id, class_id, start_date, end_date)
+    IGNORE INTO class_reservation (requester_id, subject_id, class_id, start_date, end_date)
 VALUES
     (
         20207,
+        '1COP022',
         'MDC-1',
         '2022-11-01 08:20:00',
         '2022-11-01 10:00:00'
     ),
     (
         20207,
+        '1COP016',
         'MDC-2',
         '2022-11-01 10:15:00',
         '2022-11-01 11:55:00'
     ),
     (
         20208,
+        '1COP029',
         'MDC-2',
         '2022-11-03 08:20:00',
         '2022-11-03 11:55:00'
     ),
     (
         20207,
+        '1COP016',
         'MDC-2',
         '2022-11-04 14:00:00',
         '2022-11-05 17:35:00'
