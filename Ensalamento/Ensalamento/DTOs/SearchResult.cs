@@ -9,6 +9,6 @@ namespace Ensalamento.DTOs
         public string TeacherName { get; set; } = null!;
         public DateTime Date { get; set; }
         public string ClassId { get; set; } = null!;
-        public string EventName { get; set; } = "Prova";
+        public string EventName { get; set; } = null!;
     }
 }

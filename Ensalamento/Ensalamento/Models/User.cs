@@ -13,6 +13,11 @@ namespace Ensalamento.Models
     [Index(nameof(RoleId), Name = "fk_user_role_id")]
     public partial class User
     {
+        public User()
+        {
+            ClassReservations = new HashSet<ClassReservation>();
+        }
+
         [Key]
         [Column("registration")]
         public int Registration { get; set; }
@@ -35,5 +40,9 @@ namespace Ensalamento.Models
         [ForeignKey(nameof(RoleId))]
         [InverseProperty("Users")]
         public virtual Role Role { get; set; }
+        [InverseProperty("UserRegistrationNavigation")]
+        public virtual Auth Auth { get; set; }
+        [InverseProperty(nameof(ClassReservation.Requester))]
+        public virtual ICollection<ClassReservation> ClassReservations { get; set; }
     }
 }

@@ -11,12 +11,21 @@ namespace Ensalamento.Models
     [Table("subject")]
     public partial class Subject
     {
+        public Subject()
+        {
+            ClassReservations = new HashSet<ClassReservation>();
+        }
+
         [Key]
         [Column("id")]
-        public int Id { get; set; }
+        [StringLength(16)]
+        public string Id { get; set; }
         [Required]
         [Column("name")]
         [StringLength(64)]
         public string Name { get; set; }
+
+        [InverseProperty(nameof(ClassReservation.Subject))]
+        public virtual ICollection<ClassReservation> ClassReservations { get; set; }
     }
 }
