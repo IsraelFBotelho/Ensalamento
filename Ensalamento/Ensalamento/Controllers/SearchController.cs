@@ -47,5 +47,10 @@ namespace Ensalamento.Controllers
 
             return Ok();
         }
+
+        public IActionResult Search()
+        {
+            return View("Index");
+        }
     }
 }
