@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Ensalamento.Models
 {
     [Table("center")]
+    [Index(nameof(Acronym), Name = "acronym", IsUnique = true)]
+    [Index(nameof(Name), Name = "name", IsUnique = true)]
     public partial class Center
     {
         public Center()

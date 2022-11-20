@@ -13,6 +13,11 @@ namespace Ensalamento.Models
     [Index(nameof(DeskTypeId), Name = "fk_class_desk_type_id")]
     public partial class Class
     {
+        public Class()
+        {
+            ClassReservations = new HashSet<ClassReservation>();
+        }
+
         [Key]
         [Column("id")]
         [StringLength(16)]
@@ -34,5 +39,7 @@ namespace Ensalamento.Models
         [ForeignKey(nameof(DeskTypeId))]
         [InverseProperty("Classes")]
         public virtual DeskType DeskType { get; set; }
+        [InverseProperty(nameof(ClassReservation.Class))]
+        public virtual ICollection<ClassReservation> ClassReservations { get; set; }
     }
 }

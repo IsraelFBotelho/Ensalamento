@@ -22,5 +22,9 @@ namespace Ensalamento.Models
         [Column("password")]
         [StringLength(40)]
         public string Password { get; set; }
+
+        [ForeignKey(nameof(UserRegistration))]
+        [InverseProperty(nameof(User.Auth))]
+        public virtual User UserRegistrationNavigation { get; set; }
     }
 }

@@ -21,12 +21,22 @@ namespace Ensalamento.Data
         public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<Center> Centers { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
+        public virtual DbSet<ClassReservation> ClassReservations { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<DeskType> DeskTypes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<SubjectHistory> SubjectHistories { get; set; }
         public virtual DbSet<User> Users { get; set; }
+
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//                optionsBuilder.UseMySql("server=localhost;port=3306;database=es_class_control_db;uid=root;pwd=3351", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.31-mysql"));
+//            }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +49,12 @@ namespace Ensalamento.Data
                     .HasName("PRIMARY");
 
                 entity.Property(e => e.UserRegistration).ValueGeneratedNever();
+
+                entity.HasOne(d => d.UserRegistrationNavigation)
+                    .WithOne(p => p.Auth)
+                    .HasForeignKey<Auth>(d => d.UserRegistration)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_auth_user_registration");
             });
 
             modelBuilder.Entity<Class>(entity =>
@@ -56,6 +72,27 @@ namespace Ensalamento.Data
                     .HasConstraintName("fk_class_desk_type_id");
             });
 
+            modelBuilder.Entity<ClassReservation>(entity =>
+            {
+                entity.HasOne(d => d.Class)
+                    .WithMany(p => p.ClassReservations)
+                    .HasForeignKey(d => d.ClassId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_class_reservation_class_id");
+
+                entity.HasOne(d => d.Requester)
+                    .WithMany(p => p.ClassReservations)
+                    .HasForeignKey(d => d.RequesterId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_class_reservation_requester_id");
+
+                entity.HasOne(d => d.Subject)
+                    .WithMany(p => p.ClassReservations)
+                    .HasForeignKey(d => d.SubjectId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_class_reservation_subject_id");
+            });
+
             modelBuilder.Entity<Department>(entity =>
             {
                 entity.HasOne(d => d.Center)
@@ -66,17 +103,23 @@ namespace Ensalamento.Data
 
             modelBuilder.Entity<SubjectHistory>(entity =>
             {
+                entity.HasOne(d => d.Student)
+                    .WithMany()
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_subject_history_student_id");
+
                 entity.HasOne(d => d.Subject)
                     .WithMany()
                     .HasForeignKey(d => d.SubjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_subject_history_subject_id");
 
-                entity.HasOne(d => d.UserRegistrationNavigation)
+                entity.HasOne(d => d.Teacher)
                     .WithMany()
-                    .HasForeignKey(d => d.UserRegistration)
+                    .HasForeignKey(d => d.TeacherId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_subject_history_user_registration");
+                    .HasConstraintName("fk_subject_history_teacher_id");
             });
 
             modelBuilder.Entity<User>(entity =>
