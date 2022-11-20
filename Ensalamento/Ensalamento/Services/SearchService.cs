@@ -34,7 +34,7 @@ namespace Ensalamento.Services
                      SubjectId = cr.SubjectId,
                      SubjectName = s.Name,
                      TeacherName = u.FirstName + " " + u.LastName,
-                     Date = cr.StartDate,
+                     Date = cr.StartDate.ToString(),
                      ClassId = cr.ClassId,
                      EventName = "Prova"
                  }).ToListAsync();
