@@ -20,7 +20,8 @@ VALUES
     ('1STA005', 'Estatística'),
     ('1COP016', 'Engenharia de Software 1'),
     ('1COP022', 'Engenharia de Software 2'),
-    ('1COP029', 'Compiladores 2');
+    ('1COP029', 'Compiladores 2'),
+    ('1COP013', 'Laboratório de Programação');
 
 INSERT
     IGNORE INTO center (name, acronym)
@@ -31,7 +32,9 @@ VALUES
 INSERT
     IGNORE INTO department (name, acronym, center_id)
 VALUES
-    ('Departamento de Computação', 'DC', 1);
+    ('Departamento de Computação', 'DC', 1),
+    ('Departamento de Matemática', 'MAT', 1),
+    ('Departamento de Física', 'FIS', 1);
 
 INSERT
     IGNORE INTO user (
@@ -67,7 +70,8 @@ VALUES
         1
     ),
     ('20207', 'Jandira', 'Guenka Palma', 2, 1),
-    ('20208', 'Wesley', 'Attrot', 2, 1);
+    ('20208', 'Wesley', 'Attrot', 2, 1),
+    ('20209', 'Bruno', 'Bogaz Zarpelão', 2, 1);
 
 INSERT
     IGNORE INTO auth (user_registration, login, password)
@@ -90,8 +94,11 @@ INSERT
         department_id
     )
 VALUES
-    ('MDC-1', 0, 20, FALSE, 1, 1),
-    ('MDC-2', 0, 20, FALSE, 1, 1);
+    ('MDC-1', 0, 30, FALSE, 1, 1),
+    ('MDC-2', 0, 30, FALSE, 1, 1),
+    ('303-A', 0, 20, FALSE, 1, 1),
+    ('304-A', 0, 20, FALSE, 1, 1),
+    ('003', 0, 30, FALSE, 1, 2);
 
 INSERT
     IGNORE INTO subject_history (
@@ -111,33 +118,52 @@ VALUES
     );
 
 INSERT
-    IGNORE INTO class_reservation (requester_id, subject_id, class_id, start_date, end_date)
+    IGNORE INTO class_reservation (
+        requester_id,
+        subject_id,
+        class_id,
+        start_date,
+        end_date,
+        event_name
+    )
 VALUES
     (
         20207,
         '1COP022',
         'MDC-1',
         '2022-11-01 08:20:00',
-        '2022-11-01 10:00:00'
+        '2022-11-01 10:00:00',
+        'Aula'
     ),
     (
         20207,
         '1COP016',
         'MDC-2',
         '2022-11-01 10:15:00',
-        '2022-11-01 11:55:00'
+        '2022-11-01 11:55:00',
+        'Aula'
     ),
     (
         20208,
         '1COP029',
         'MDC-2',
         '2022-11-03 08:20:00',
-        '2022-11-03 11:55:00'
+        '2022-11-03 11:55:00',
+        'Avaliação'
     ),
     (
         20207,
         '1COP016',
         'MDC-2',
         '2022-11-04 14:00:00',
-        '2022-11-05 17:35:00'
+        '2022-11-04 17:35:00',
+        'Reposição'
+    ),
+    (
+        20209,
+        '1COP013',
+        '303-A',
+        '2022-11-06 14:00:00',
+        '2022-11-06 15:40:00',
+        'Aula'
     );

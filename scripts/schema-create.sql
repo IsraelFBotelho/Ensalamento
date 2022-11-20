@@ -82,6 +82,7 @@ CREATE TABLE class_reservation (
     class_id VARCHAR(16) NOT NULL,
     start_date DATETIME NOT NULL,
     end_date DATETIME NOT NULL,
+    event_name VARCHAR(64),
     CONSTRAINT fk_class_reservation_subject_id FOREIGN KEY (subject_id) REFERENCES subject (id),
     CONSTRAINT fk_class_reservation_requester_id FOREIGN KEY (requester_id) REFERENCES user (registration),
     CONSTRAINT fk_class_reservation_class_id FOREIGN KEY (class_id) REFERENCES class (id)
