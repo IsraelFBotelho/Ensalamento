@@ -40,7 +40,7 @@ namespace Ensalamento.Services
                     TeacherName = u.FirstName + " " + u.LastName,
                     Date = GetDateAsString(cr.StartDate),
                     ClassId = cr.ClassId,
-                    EventName = "Prova"
+                    EventName = cr.EventName
                 }).ToListAsync();
         }
 
@@ -50,7 +50,7 @@ namespace Ensalamento.Services
             string dayOfWeek = culture.DateTimeFormat.GetDayName(date.DayOfWeek);
             string hour = date.ToShortTimeString();
 
-            return char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1) + " - " + hour;
+            return char.ToUpper(dayOfWeek[0]) + dayOfWeek[1..] + " - " + hour;
         }
     }
 }
