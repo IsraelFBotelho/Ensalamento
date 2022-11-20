@@ -31,6 +31,9 @@ namespace Ensalamento.Models
         public DateTime StartDate { get; set; }
         [Column("end_date", TypeName = "datetime")]
         public DateTime EndDate { get; set; }
+        [Column("event_name")]
+        [StringLength(64)]
+        public string EventName { get; set; }
 
         [ForeignKey(nameof(ClassId))]
         [InverseProperty("ClassReservations")]
