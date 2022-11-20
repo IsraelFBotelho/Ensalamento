@@ -19,5 +19,10 @@ namespace Ensalamento.Controllers
             var result = await _searchService.FindAsync(name);
             return View();
         }
+
+        public IActionResult Search()
+        {
+            return View("Index");
+        }
     }
 }
