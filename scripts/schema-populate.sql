@@ -5,7 +5,8 @@ INSERT
 VALUES
     ('Discente'),
     ('Docente'),
-    ('Coordenação');
+    ('Coordenação'),
+    ('Secretaria');
 
 INSERT
     IGNORE INTO desk_type (name)

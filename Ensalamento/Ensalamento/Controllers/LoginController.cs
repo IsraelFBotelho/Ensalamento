@@ -15,7 +15,7 @@ namespace Ensalamento.Controllers
 {
     public class LoginController : Controller
     {
-        
+
         private ESContext _context;
 
         private readonly ILogger<HomeController> _logger;
@@ -26,7 +26,7 @@ namespace Ensalamento.Controllers
             _logger = logger;
             _context = context;
         }
-        
+
         public IActionResult UserPanelCoordinator()
         {
             return View();
@@ -46,12 +46,12 @@ namespace Ensalamento.Controllers
         {
             return View();
         }
-        
+
         public IActionResult SelectUser()
         {
             return View("AuthenticateUser");
         }
-        
+
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Login(Auth auth)
         {
@@ -64,34 +64,34 @@ namespace Ensalamento.Controllers
 
             var userdb = _context.Users.FirstOrDefault(c => c.Registration == user.UserRegistration);
             var role = _context.Roles.FirstOrDefault(c => c.Id == userdb.RoleId);
-            
+
             await new LoginServices().Login(HttpContext, userdb, role);
 
             return RedirectToAction("Profile");
         }
-        
+
         [Authorize]
         public IActionResult Profile()
         {
-            TextInfo myTI = new CultureInfo("PT-br",false).TextInfo;
-            
+            TextInfo myTI = new CultureInfo("PT-br", false).TextInfo;
+
             ViewBag.Permissoes = HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.Role).Select(x => x.Value).SingleOrDefault();
             ViewBag.Nome = myTI.ToTitleCase(HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.Name).Select(x => x.Value)
                 .SingleOrDefault() ?? string.Empty);
 
-            if (ViewBag.Permissoes.ToString() == "estudante")
+            if (ViewBag.Permissoes.ToString() == "Discente")
             {
                 return View("../Login/UserPanelStudent");
             }
-            else if (ViewBag.Permissoes == "professor")
+            else if (ViewBag.Permissoes == "Docente")
             {
                 return View("../Login/UserPanelTeacher");
             }
-            else if (ViewBag.Permissoes == "coordenador")
+            else if (ViewBag.Permissoes == "Coordenação")
             {
                 return View("../Login/UserPanelCoordinator");
             }
-            else if (ViewBag.Permissoes == "secretaria")
+            else if (ViewBag.Permissoes == "Secretaria")
             {
                 return View("../Login/UserPanelTeacher");
             }
@@ -100,7 +100,7 @@ namespace Ensalamento.Controllers
             ViewBag.Erro = "Sessão Inválida";
             return View("../Login/AuthenticateUser");
         }
-        
+
         [AllowAnonymous]
         public IActionResult Erro(bool errologin)
         {
@@ -108,15 +108,15 @@ namespace Ensalamento.Controllers
             {
                 ViewBag.Erro = "Login e/ou senha incorretos";
             }
-            
+
             return View("../Login/AuthenticateUser");
         }
-        
+
         [Authorize]
         public async Task<IActionResult> Sair()
         {
             await new LoginServices().Logoff(HttpContext);
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
