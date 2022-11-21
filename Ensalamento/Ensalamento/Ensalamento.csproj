@@ -25,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="DTOs\ViewProps.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Login\Login.cshtml" />
     <Content Remove="wwwroot\logouelbranco.png" />
   </ItemGroup>

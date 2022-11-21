@@ -14,7 +14,7 @@ namespace Ensalamento.Services
 {
     public interface ISearchService
     {
-        Task<List<SearchResult>> FindAsync(string name);
+        List<SearchResult> Find(string name);
     }
 
     public class SearchService : ISearchService
@@ -26,9 +26,9 @@ namespace Ensalamento.Services
             _context = context;
         }
 
-        public async Task<List<SearchResult>> FindAsync(string name)
+        public List<SearchResult> Find(string name)
         {
-            return await (
+            return (
                 from cr in _context.ClassReservations
                 join u in _context.Users on cr.RequesterId equals u.Registration
                 join s in _context.Subjects on cr.SubjectId equals s.Id
@@ -41,7 +41,7 @@ namespace Ensalamento.Services
                     Date = GetDateAsString(cr.StartDate),
                     ClassId = cr.ClassId,
                     EventName = cr.EventName
-                }).ToListAsync();
+                }).ToList();
         }
 
         private static string GetDateAsString(DateTime date)
