@@ -299,15 +299,14 @@ body {
     border-right-width: 1px;
     border-right-style: solid;
     border-right-color: #ced4da;
-    background-color: #d32929;
 }
 
 .lblSearch {
     position: absolute;
     width: 283px;
     height: 22px;
-    left: 339px;
-    top: 137px;
+    left: 83px;
+    top: 71px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -318,10 +317,10 @@ body {
 
 .rectSearch {
     position: absolute;
-    left: 336px;
+    height: 53px;
+    left: 80px;
     right: 184px;
-    top: 187px;
-    bottom: 843px;
+    top: 121px;
     background: #00753B;
     border-radius: 10px;
 }
@@ -329,66 +328,108 @@ body {
 .lblRectSearch {
     position: absolute;
     height: 47px;
-    left: 370px;
+    left: 34px;
     right: 1471px;
-    top: 191px;
+    top: 4px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
+    display: flex;
+    align-items: center;
     letter-spacing: 0.15px;
     color: #FFFFFF;
 }
 
 .divInputRectSearch {
-    box-sizing: border-box;
     position: absolute;
     width: 275px;
     height: 33px;
-    left: 1451px;
-    top: 199px;
-    background: rgba(245, 245, 245, 0.83);
-    border: 1px solid #A8A2A2;
-    border-radius: 10px;
-     
+    left: 895px;
+    top: 130px;
+    
 }
 
 .inputRectSearch {
     position: absolute;
-    width: 215px;
-    height: 33px;
-    left: 1481px;
-    top: 199px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
-    text-align: center;
     letter-spacing: 0.15px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.83);
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    border-color: #00753B;
     color: #757575;
+    padding-left: 10px;
 }
+
+.buttonSearch {
+    box-sizing: border-box;
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    left: 1180px;
+    top: 130px;
+    background: #dad9d9;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+}
+
+/*.divtblSearch {
+    margin-top: 176px;
+    margin-left: 80px;
+    border: 1px solid #A8A2A2;
+    border-radius: 10px;*/
+    /*box-sizing: border-box;
+    background: #FDFDFD;
+    
+    position: absolute;
+    width: 1167px;
+    left: 80px;
+    min-height: 100px;
+    max-height: 500px;
+    right: 184px;
+    top: 176px;*/
+/*}*/
 
 .tblSearch {
     box-sizing: border-box;
     position: absolute;
-    width: 1400px;
-    height: 219px;
-    left: 336px;
-    top: 240px;
+    width: 1167px;
+    left: 80px;
+    right: 184px;
+    top: 176px;
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
     background: #FDFDFD;
     border: 1px solid #A8A2A2;
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    align-items: center;
+    align-content: center;
+    color: #000000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
 }
 
-.lineGrey {
-    box-sizing: border-box;
-    /*position: absolute;
-    width: 1399px;
+tr {
     height: 45px;
-    left: 336px;
-    top: 374px;*/
-    background: #D9D9D9;
-    border: 1px solid #A8A2A2;
+}
+
+td, th {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

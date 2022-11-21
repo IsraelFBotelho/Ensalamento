@@ -50,7 +50,7 @@ namespace Ensalamento.Controllers
 
         public IActionResult Search()
         {
-            return View("Index");
+            return View("SearchTeacher");
         }
     }
 }
