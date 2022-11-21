@@ -49,8 +49,9 @@ namespace Ensalamento.Services
             var culture = new CultureInfo("pt-BR");
             string dayOfWeek = culture.DateTimeFormat.GetDayName(date.DayOfWeek);
             string hour = date.ToShortTimeString();
+            string shortDate = " (" + date.Day + "/" + date.Month + ")";
 
-            return char.ToUpper(dayOfWeek[0]) + dayOfWeek[1..] + " - " + hour;
+            return char.ToUpper(dayOfWeek[0]) + dayOfWeek[1..] + shortDate + " - " + hour;
         }
     }
 }
