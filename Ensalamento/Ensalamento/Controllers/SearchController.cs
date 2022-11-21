@@ -22,12 +22,10 @@ namespace Ensalamento.Controllers
         [HttpGet]
         public async Task<IActionResult> IndexAsync(string name)
         {
-            string _name = "a";
-
             Console.WriteLine("Running IndexAsync()\n\n");
 
-            var result = await _searchService.FindAsync(_name);
-            // ViewBag.Result = result;
+            var result = await _searchService.FindAsync(name);
+            ViewBag.Result = result;
 
             if (!result.Any())
             {
