@@ -344,9 +344,10 @@ body {
 
 .divInputRectSearch {
     position: absolute;
-    width: 275px;
+    /*width: 275px;*/
     height: 33px;
     left: 895px;
+    right: 261px;
     top: 130px;
     
 }
@@ -375,9 +376,10 @@ body {
 .buttonSearch {
     box-sizing: border-box;
     position: absolute;
-    width: 33px;
+    /*width: 33px;*/
+    right: 203px;
     height: 33px;
-    left: 1180px;
+    left: 1189px;
     top: 130px;
     background: #dad9d9;
     border: 1px solid #f0f0f0;
@@ -406,7 +408,7 @@ body {
     position: absolute;
     width: 1167px;
     left: 80px;
-    right: 184px;
+    /*right: 184px;*/
     top: 176px;
     border-collapse: collapse;
     text-align: center;
